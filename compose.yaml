@@ -1,0 +1,18 @@
+services:
+  calendar-provider:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+    environment:
+      BASE_URL: ${BASE_URL:?BASE_URL not set}
+      CALENDAR_URL_PATH: ${CALENDAR_URL_PATH:?CALENDAR_URL_PATH not set}
+      CALENDAR_NAME: ${CALENDAR_NAME:?CALENDAR_NAME not set}
+      LOGIN_USERNAME: ${LOGIN_USERNAME:?LOGIN_USERNAME not set}
+      LOGIN_PASSWORD: ${LOGIN_PASSWORD:?LOGIN_PASSWORD not set}
+      API_TOKEN: ${API_TOKEN:?API_TOKEN not set}
+      OUTPUT_ANALYSIS_PATH: /app/data/calendar_analysis.json
+      OUTPUT_CALENDAR_PATH: /app/data/calendar.ics

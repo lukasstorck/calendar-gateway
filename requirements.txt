@@ -1,0 +1,7 @@
+apscheduler
+beautifulsoup4
+fastapi
+icalendar
+requests
+tqdm
+uvicorn[standard]
