@@ -1,5 +1,6 @@
 services:
-  calendar-provider:
+  calendar-gateway:
+    container_name: calendar-gateway
     build: .
     restart: unless-stopped
     ports:
