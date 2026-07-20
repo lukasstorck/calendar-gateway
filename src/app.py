@@ -53,7 +53,7 @@ async def lifespan(app: fastapi.FastAPI):
 app = fastapi.FastAPI(lifespan=lifespan)
 
 
-@app.get(CALENDAR_NAME)
+@app.get(f'/{CALENDAR_NAME}')
 async def calendar(token: str = fastapi.Query(...)):
   if token != API_TOKEN:
     raise fastapi.HTTPException(status_code=401, detail='Invalid token')
